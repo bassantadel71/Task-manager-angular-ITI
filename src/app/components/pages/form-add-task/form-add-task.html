@@ -1,0 +1,108 @@
+<div class="container py-4">
+  <div class="card task-card shadow-sm">
+    <div class="card-body p-4">
+      <h4 class="fw-bold mb-4 title">Add New Task</h4>
+
+      @if (errorMessage) {
+        <div class="alert alert-danger">{{ errorMessage }}</div>
+      }
+
+      @if (successMessage) {
+        <div class="alert alert-success">{{ successMessage }}</div>
+      }
+
+      <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+        <!-- Title -->
+        <div class="mb-3">
+          <label class="form-label">Task Title</label>
+          <input
+            type="text"
+            class="form-control custom-input"
+            name="title"
+            [(ngModel)]="newTask.title"
+            required
+            #titleRef="ngModel"
+            [class.is-invalid]="titleRef.invalid && titleRef.touched"
+          />
+
+          @if (titleRef.invalid && titleRef.touched) {
+            <small class="text-danger">Title is required</small>
+          }
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea
+            class="form-control custom-input"
+            rows="3"
+            name="description"
+            [(ngModel)]="newTask.description"
+            required
+            #descRef="ngModel"
+            [class.is-invalid]="descRef.invalid && descRef.touched"
+          ></textarea>
+
+          @if (descRef.invalid && descRef.touched) {
+            <small class="text-danger">Description is required</small>
+          }
+        </div>
+
+        <!-- Priority & Category -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Priority</label>
+            <select class="form-select custom-input" name="priority" [(ngModel)]="newTask.priority">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label class="form-label">Category</label>
+            <select class="form-select custom-input" name="category" [(ngModel)]="newTask.category">
+              <option>Work</option>
+              <option>Personal</option>
+              <option>Study</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Date & Tags -->
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label">Due Date</label>
+            <input
+              type="date"
+              class="form-control custom-input"
+              name="date"
+              [(ngModel)]="newTask.date"
+              required
+              #dateRef="ngModel"
+              [class.is-invalid]="dateRef.invalid && dateRef.touched"
+            />
+
+            @if (dateRef.invalid && dateRef.touched) {
+              <small class="text-danger">Date is required</small>
+            }
+          </div>
+
+          <div class="col">
+            <label class="form-label">Tags</label>
+            <input
+              type="text"
+              class="form-control custom-input"
+              name="tags"
+              [(ngModel)]="newTask.tags"
+              placeholder="e.g. urgent, home"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-task w-100">Add Task</button>
+      </form>
+    </div>
+  </div>
+</div>

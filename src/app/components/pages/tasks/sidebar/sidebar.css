@@ -1,0 +1,18 @@
+
+.sidebar {
+  width: 240px;
+  min-height: 70vh;
+  background-color: #e9e7e0;
+  border-right: 1px solid #cfc9bf;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #cfc9bf;
+  }
+}

@@ -1,0 +1,39 @@
+<section class="hero-section"
+         (mouseenter)="pause()"
+         (mouseleave)="resume()">
+
+  <div class="carousel-wrapper">
+
+    <div class="carousel-track"
+         [style.transform]="'translateX(-' + current * 100 + '%)'">
+      @for (img of images; track img.src; let i = $index) {
+        <div class="slide">
+          <img
+            [src]="img.src"
+            [alt]="img.title"
+            [class.zoom-in]="i === current"
+          />
+          <div class="slide-mask">
+            <div class="slide-text">
+              <h2>{{ img.title }}</h2>
+              <p>{{ img.subtitle }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <button class="carousel-btn prev" (click)="prev()">&#10094;</button>
+    <button class="carousel-btn next" (click)="next()">&#10095;</button>
+
+    <div class="dots">
+      @for (img of images; track img.src; let i = $index) {
+        <button class="dot"
+                [class.active]="i === current"
+                (click)="goTo(i)">
+        </button>
+      }
+    </div>
+
+  </div>
+</section>

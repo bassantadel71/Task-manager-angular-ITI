@@ -1,0 +1,62 @@
+<div class="container py-4" style="max-width: 700px;">
+
+    <div class="card shadow">
+      <div class="card-body p-5">
+
+        <button class="btn btn-outline-secondary btn-sm mb-4"
+                (click)="goBack()">
+          ← Back to Tasks
+        </button>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="fw-bold mb-0">{{ task.title }}</h2>
+          @if (task.priority === 'High') {
+            <span class="badge bg-danger fs-6">High</span>
+          } @else if (task.priority === 'Medium') {
+            <span class="badge bg-warning text-dark fs-6">Medium</span>
+          } @else {
+            <span class="badge bg-success fs-6">Low</span>
+          }
+        </div>
+
+        <div class="mb-4">
+          @if (task.is_done) {
+            <span class="badge bg-success me-2">Done</span>
+          }
+          @if (task.is_deleted) {
+            <span class="badge bg-danger me-2">Deleted</span>
+          }
+          @if (!task.is_done && !task.is_deleted) {
+            <span class="badge bg-primary me-2">Active</span>
+          }
+        </div>
+
+        <hr />
+
+        <div class="mb-4">
+          <h6 class="text-muted fw-semibold">Description</h6>
+          <p>{{ task.description }}</p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-6">
+            <h6 class="text-muted fw-semibold">Due Date</h6>
+            <p>{{ task.date }}</p>
+          </div>
+          <div class="col-6">
+            <h6 class="text-muted fw-semibold">Category</h6>
+            <p>{{ task.category }}</p>
+          </div>
+          <div class="col-6">
+            <h6 class="text-muted fw-semibold">Tags</h6>
+            <p>{{ task.tags || '—' }}</p>
+          </div>
+          <div class="col-6">
+            <h6 class="text-muted fw-semibold">Owner</h6>
+            <p>{{ task.email }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>

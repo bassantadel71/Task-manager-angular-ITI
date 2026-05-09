@@ -1,0 +1,18 @@
+<h5 class="fw-bold mb-3">Done Tasks</h5>
+
+@for (task of tasks; track task.id) {
+  <div class="card mb-3 border-success opacity-75">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h5 class="text-decoration-line-through text-muted">{{ task.title }}</h5>
+        <span class="badge bg-success">Done</span>
+      </div>
+      <div class="text-muted small">
+        <span>{{ task.date }}</span>
+        <span class="ms-3">Category: {{ task.category }}</span>
+      </div>
+    </div>
+  </div>
+} @empty {
+  <p class="text-center text-muted mt-5">No done tasks yet!</p>
+}

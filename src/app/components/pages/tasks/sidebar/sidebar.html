@@ -1,0 +1,49 @@
+<!-- <div class="sidebar d-flex flex-column p-3">
+  <h6 class="fw-bold text-muted mb-3">My Tasks</h6>
+
+  <button
+    class="btn text-start mb-2"
+    [ngClass]="activeView === 'all' ? 'btn-primary' : 'btn-outline-secondary'"
+    (click)="viewChanged.emit('all')">
+    All Tasks
+  </button>
+
+  <button
+    class="btn text-start mb-2"
+    [ngClass]="activeView === 'done' ? 'btn-success' : 'btn-outline-success'"
+    (click)="viewChanged.emit('done')">
+    Done
+  </button>
+
+  <button
+    class="btn text-start"
+    [ngClass]="activeView === 'deleted' ? 'btn-danger' : 'btn-outline-danger'"
+    (click)="viewChanged.emit('deleted')">
+    Deleted
+  </button>
+</div> -->
+
+<div class="sidebar d-flex flex-column flex-md-column flex-row p-3">
+  <h6 class="fw-bold text-muted mb-3 w-100">My Tasks</h6>
+
+  <button
+    class="btn text-start mb-2 me-md-0 me-2 "
+    [ngClass]="activeView === 'all' ? 'btn-primary' : 'btn-outline-secondary'"
+    (click)="viewChanged.emit('all')">
+    All Tasks
+  </button>
+
+  <button
+    class="btn text-start mb-2 me-md-0 me-2 "
+    [ngClass]="activeView === 'done' ? 'btn-success' : 'btn-outline-success'"
+    (click)="viewChanged.emit('done')">
+    Done
+  </button>
+
+  <button
+    class="btn text-start "
+    [ngClass]="activeView === 'deleted' ? 'btn-danger' : 'btn-outline-danger'"
+    (click)="viewChanged.emit('deleted')">
+    Deleted
+  </button>
+</div>

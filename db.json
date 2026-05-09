@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "123456",
+      "id": "RH_m5zqs0kc"
+    },
+    {
+      "id": "BeCchJUdyA0",
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "NAqQvQtvUWU",
+      "name": "bassant",
+      "email": "Bassant@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ryWbdOobaX4",
+      "email": "ali@gmail.com",
+      "title": "angular task",
+      "description": "make angular task",
+      "priority": "Medium",
+      "date": "2026-05-08",
+      "category": "Study",
+      "tags": "urgent",
+      "is_done": true,
+      "is_deleted": false
+    },
+    {
+      "id": "kCETkI4sEIQ",
+      "email": "ali@gmail.com",
+      "title": "angular task",
+      "description": "make angular task",
+      "priority": "Medium",
+      "date": "2026-05-08",
+      "category": "Study",
+      "tags": "urgent",
+      "is_done": false,
+      "is_deleted": true
+    },
+    {
+      "id": "NZwvboSGbWo",
+      "email": "ali@gmail.com",
+      "title": "angular task",
+      "description": "make angular task",
+      "priority": "Medium",
+      "date": "2026-05-08",
+      "category": "Study",
+      "tags": "urgent",
+      "is_done": true,
+      "is_deleted": false
+    },
+    {
+      "id": "HfkkoHN1jac",
+      "email": "ali@gmail.com",
+      "title": "vibe coding task",
+      "description": "make app using ai",
+      "priority": "Low",
+      "date": "2026-05-10",
+      "category": "Work",
+      "tags": "3ady",
+      "is_done": false,
+      "is_deleted": true
+    },
+    {
+      "id": "Lz1FG-jnMDE",
+      "email": "ali@gmail.com",
+      "title": "cst task",
+      "description": "make new website",
+      "priority": "Low",
+      "date": "2026-05-15",
+      "category": "Study",
+      "tags": "urgent",
+      "is_done": true,
+      "is_deleted": false
+    },
+    {
+      "id": "1IKLfGjK-Ic",
+      "email": "ali@gmail.com",
+      "title": "angular video",
+      "description": "make angular video and upload it",
+      "priority": "Low",
+      "date": "2026-05-10",
+      "category": "Study",
+      "tags": "urgent",
+      "is_done": true,
+      "is_deleted": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

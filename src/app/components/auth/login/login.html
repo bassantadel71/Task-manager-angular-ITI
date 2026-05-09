@@ -1,0 +1,88 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid"
+          alt="Phone image"
+        />
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <!-- Email input -->
+          <label class="form-label" for="form1Example13">Email address</label>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input
+              (input)="flag = false"
+              ngModel
+              name="email"
+              type="email"
+              id="form1Example13"
+              class="form-control form-control-lg"
+              #email="ngModel"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"
+            />
+            @if (email.invalid && email.touched) {
+              @if (email.errors?.['required']) {
+                <small class="text-danger">Email is required</small>
+              }
+              @if (email.errors?.['email']) {
+                <small class="text-danger">Enter a valid email</small>
+              }
+              @if (email.errors?.['pattern']) {
+                <small class="text-danger">Email should be like: example@gmail.com</small>
+              }
+            }
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label">Password</label>
+            <input
+              ngModel
+              name="password"
+              (input)="flag = false"
+              required
+              minlength="6"
+              type="password"
+              class="form-control form-control-lg"
+              #password="ngModel"
+            />
+            @if (password.invalid && password.touched) {
+              @if (password.errors?.['required']) {
+                <small class="text-danger">Password is required</small>
+              }
+              @if (password.errors?.['minlength']) {
+                <small class="text-danger">Minimum 6 characters</small>
+              }
+            }
+          </div>
+
+          @if (flag) {
+            <small class="text-danger d-block mb-2"> Invalid email or password </small>
+          }
+
+          <br />
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg btn-block w-100"
+            [disabled]="form.invalid"
+          >
+            Login
+          </button>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <button type="button" class="btn btn-outline-secondary w-100" (click)="goToSignup()">
+            Create new account
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

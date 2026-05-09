@@ -1,0 +1,29 @@
+<div class="container-fluid px-0">
+
+    <div class="d-flex align-items-stretch">
+
+      <!-- Sidebar -->
+      <app-sidebar
+        [activeView]="activeView"
+        (viewChanged)="onViewChange($event)"
+      />
+
+      <!-- Content -->
+      <div class="flex-grow-1  p-3">
+        @if (activeView === 'all') {
+          <app-all-tasks
+            [tasks]="activeTasks"
+            (markDone)="onMarkDone($event)"
+            (markDeleted)="onMarkDeleted($event)"
+          />
+        }
+        @if (activeView === 'done') {
+          <app-done-tasks [tasks]="doneTasks" />
+        }
+        @if (activeView === 'deleted') {
+          <app-deleted-tasks [tasks]="deletedTasks" />
+        }
+      </div>
+
+    </div>
+</div>

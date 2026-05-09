@@ -1,0 +1,51 @@
+<div class="card mb-3 shadow-sm"
+     [ngClass]="{
+       'border-danger'  : task.priority === 'High',
+       'border-warning' : task.priority === 'Medium',
+       'border-success' : task.priority === 'Low'
+     }">
+  <div class="card-body">
+
+    <!-- title + priority badge -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5 class="card-title mb-0">{{ task.title }}</h5>
+      @if (task.priority === 'High') {
+        <span class="badge bg-danger">High</span>
+      } @else if (task.priority === 'Medium') {
+        <span class="badge bg-warning text-dark">Medium</span>
+      } @else {
+        <span class="badge bg-success">Low</span>
+      }
+    </div>
+
+    <!-- info -->
+    <div class="d-flex gap-3 text-muted small mb-3">
+      <span>📅 {{ task.date }}</span>
+      <span>Category: {{ task.category }}</span>
+      @if (task.tags) {
+        <span>Tags: {{ task.tags }}</span>
+      }
+    </div>
+
+    <!-- buttons -->
+    <div class="d-flex gap-2">
+      <button class="btn btn-success btn-sm"
+              (click)="markDone.emit(task.id)">
+        Done
+      </button>
+      <button class="btn btn-danger btn-sm"
+              (click)="markDeleted.emit(task.id)">
+        Delete
+      </button>
+      <button class="btn btn-warning btn-sm"
+              (click)="editTask()">
+        Edit
+      </button>
+      <button class="btn btn-outline-primary btn-sm ms-auto"
+              (click)="viewDetails()">
+         View
+      </button>
+    </div>
+
+  </div>
+</div>

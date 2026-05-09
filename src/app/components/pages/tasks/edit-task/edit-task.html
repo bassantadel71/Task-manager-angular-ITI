@@ -1,0 +1,109 @@
+<div class="container py-4">
+  <div class="card task-card shadow-sm">
+    <div class="card-body p-4">
+      <h4 class="fw-bold mb-4 title">Edit Task</h4>
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <button class="btn btn-outline-secondary btn-sm" (click)="goBack()">← Back</button>
+        <h4 class="fw-bold mb-0">Edit Task</h4>
+      </div>
+      @if (errorMessage) {
+        <div class="alert alert-danger">{{ errorMessage }}</div>
+      }
+      @if (successMessage) {
+        <div class="alert alert-success">{{ successMessage }}</div>
+      }
+
+      <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+        <!-- Title -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Task Title</label>
+          <input
+            type="text"
+            class="form-control custom-input"
+            name="title"
+            [(ngModel)]="task.title"
+            required
+            #titleRef="ngModel"
+            [class.is-invalid]="titleRef.invalid && titleRef.touched"
+          />
+          @if (titleRef.invalid && titleRef.touched) {
+            <small class="text-danger">Title is required</small>
+          }
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Description</label>
+          <textarea
+            class="form-control custom-input"
+            rows="3"
+            name="description"
+            [(ngModel)]="task.description"
+            required
+            #descRef="ngModel"
+            [class.is-invalid]="descRef.invalid && descRef.touched"
+          >
+          </textarea>
+          @if (descRef.invalid && descRef.touched) {
+            <small class="text-danger">Description is required</small>
+          }
+        </div>
+
+        <!-- Priority & Category -->
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label fw-semibold">Priority</label>
+            <select class="form-select custom-input" name="priority"  [(ngModel)]="task.priority">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+          <div class="col">
+            <label class="form-label fw-semibold">Category</label>
+            <select class="form-select custom-input" name="category"  [(ngModel)]="task.category">
+              <option>Work</option>
+              <option>Personal</option>
+              <option>Study</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Date & Tags -->
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label fw-semibold">Due Date</label>
+            <input
+              type="date"
+              class="form-control custom-input"
+              name="date"
+              [(ngModel)]="task.date"
+              required
+              #dateRef="ngModel"
+              [class.is-invalid]="dateRef.invalid && dateRef.touched"
+            />
+            @if (dateRef.invalid && dateRef.touched) {
+              <small class="text-danger">Date is required</small>
+            }
+          </div>
+          <div class="col">
+            <label class="form-label fw-semibold">Tags</label>
+            <input
+              type="text"
+              class="form-control custom-input"
+              name="tags"
+              [(ngModel)]="task.tags"
+              placeholder="e.g. urgent, home"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-secondary" (click)="goBack()">Cancel</button>
+          <button type="submit" class="btn btn-task flex-grow-1">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

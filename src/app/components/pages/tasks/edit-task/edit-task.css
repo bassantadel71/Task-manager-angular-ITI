@@ -1,0 +1,35 @@
+.task-card {
+  background-color:#f3f3f3;
+  border: none;
+  border-radius: 14px;
+}
+
+.title {
+  color: #4a5759;
+}
+
+/* inputs */
+.custom-input {
+  border-radius: 10px;
+  border: 1px solid #b0c4b1;
+  transition: 0.3s;
+}
+
+.custom-input:focus {
+  border-color: #edafb8;
+  box-shadow: 0 0 0 0.2rem rgba(237, 175, 184, 0.25);
+}
+
+/* button */
+.btn-task {
+  background-color: #4a5759;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.btn-task:hover {
+  background-color: #edafb8;
+  color: #4a5759;
+}

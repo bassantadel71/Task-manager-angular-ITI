@@ -1,0 +1,153 @@
+.hero-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* image — zoom handled by class */
+.slide img {
+  width: 100%;
+  height: 88vh;
+  min-height: 420px;
+  max-height: 780px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1);
+  transition: transform 6s ease;
+}
+
+/* zoom in on active slide when hovered */
+.slide img.zoom-in {
+  transform: scale(1.06);
+}
+
+/* pause zoom when not hovered — handled by parent mouseenter/leave */
+.hero-section:not(:hover) .slide img.zoom-in {
+  transform: scale(1);
+}
+
+/* overlay */
+.slide-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(74, 87, 89, 0.05) 0%,
+    rgba(74, 87, 89, 0.20) 40%,
+    rgba(74, 87, 89, 0.65) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 3.5rem 5vw;
+}
+
+/* text */
+.slide-text {
+  max-width: 680px;
+}
+
+.slide-text h2 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.slide-text p {
+  color: #DEDBD2;
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  margin: 0;
+}
+
+/* controls */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  color: #4A5759;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* dots */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.dot.active {
+  background: #fff;
+  width: 26px;
+}
+
+/* responsive */
+@media (max-width: 576px) {
+  .slide img {
+    height: 55vh;
+    min-height: 280px;
+  }
+  .slide-mask { padding: 2rem 1.5rem; }
+  .carousel-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  .slide img { height: 65vh; }
+}
